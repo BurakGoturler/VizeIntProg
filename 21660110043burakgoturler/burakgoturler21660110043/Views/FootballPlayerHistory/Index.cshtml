@@ -1,0 +1,48 @@
+﻿@model IEnumerable<burakgoturler21660110043.Models.FootballPlayerHistory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Futbol Oyuncu Tarihçesi</h1>
+
+@section scripts {
+    <p>Script</p>
+    }
+@section head {
+    <p>Head</p>
+    }
+
+<p>
+    <a asp-action="Create">Yeni Futbol Oyuncu Tarihçesi Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Temizle</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

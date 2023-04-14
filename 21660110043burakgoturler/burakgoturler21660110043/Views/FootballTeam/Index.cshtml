@@ -1,0 +1,72 @@
+﻿@model IEnumerable<burakgoturler21660110043.Models.FootballTeam>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Futbol Takımı Özellikleri</h1>
+
+@section scripts {
+    <p>Script</p>
+    }
+@section head {
+    <p>Head</p>
+    }
+
+<p>
+    <a asp-action="Create">Yeni Futbol Takımı Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstablishDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniformTeamColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectoHelperName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstablishDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniformTeamColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectoHelperName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Temizle</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
